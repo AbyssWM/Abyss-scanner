@@ -293,7 +293,7 @@ void parseHeader() {
         }
     }
 
-    HEADER += "\n\n#ifndef HYPRWAYLAND_SCANNER_NO_INTERFACES\n";
+    HEADER += "\n\n#ifndef ABYSS_SCANNER_NO_INTERFACES\n";
 
     for (auto& iface : XMLDATA.ifaces) {
         const auto IFACE_WL_NAME       = iface.name + "_interface";
@@ -517,7 +517,7 @@ class {} {{
 
 void parseSource() {
     SOURCE += std::format(R"#(#define private public
-#define HYPRWAYLAND_SCANNER_NO_INTERFACES
+#define ABYSS_SCANNER_NO_INTERFACES
 #include "{}.hpp"
 #undef private
 #define F std::function
@@ -1016,7 +1016,7 @@ int main(int argc, char** argv, char** envp) {
     PROTO_DATA.fileName     = protopath.substr(protopath.find_last_of('/') + 1, protopath.length() - (protopath.find_last_of('/') + 1) - 4);
 
     const auto COPYRIGHT =
-        std::format("// Generated with hyprwayland-scanner {}. Made with vaxry's keyboard and ❤️.\n// {}\n\n/*\n This protocol's authors' copyright notice is:\n\n{}\n*/\n\n",
+        std::format("// Generated with abyss-scanner {}. Made with vaxry's keyboard and ❤️.\n// {}\n\n/*\n This protocol's authors' copyright notice is:\n\n{}\n*/\n\n",
                     SCANNER_VERSION, PROTO_DATA.nameOriginal, std::string{doc.child("protocol").child("copyright").child_value()});
 
     parseXML(doc);

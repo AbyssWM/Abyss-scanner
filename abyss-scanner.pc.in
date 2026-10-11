@@ -1,0 +1,6 @@
+abyss_scanner=@PREFIX@/bin/abyss-scanner
+
+Name: AbyssWayland Scanner
+URL: https://github.com/AbyssWM/abyss-scanner
+Description: A Abyssland version of wayland-scanner in and for C++
+Version: @VERSION@

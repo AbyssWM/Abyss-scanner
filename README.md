@@ -1,36 +1,52 @@
-# hyprwayland-scanner
-A Hyprland implementation of wayland-scanner, in and for C++.
+<div align="center">
 
-hw-s automatically generates properly RAII-ready, modern C++ bindings for Wayland protocols, for
-either servers or clients.
+<img src="https://github.com/AbyssWM.png?size=200" width="160" alt="Abyss logo">
 
-## Usage
+# Abyss-scanner
 
-```sh
-hyprwayland-scanner '/path/to/proto' '/path/to/output/directory'
-```
+**Wayland protocol scanner generating C++ bindings.**
 
-### Options
+Part of [**Abyss**](https://github.com/AbyssWM) · Based on [hyprwayland-scanner](https://github.com/hyprwm/hyprwayland-scanner) by [hyprwm](https://github.com/hyprwm)
 
-- `--client` -> generate client code
-- `--wayland-enums` -> use wayland enum naming (snake instead of camel)
+</div>
 
-## Dependencies
+---
 
-Requires a compiler with C++23 support.
+> [!WARNING]
+> **Early development.** Abyss is being rebranded and reworked right now. Nothing is ready for daily use yet.
 
-Dep list:
- - pugixml
+## About
 
-## Building
+Abyss-scanner turns Wayland protocol XML into modern C++ bindings used by Abyssland and its libraries.
 
-```sh
-cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
-cmake --build build -j `nproc`
-```
+Abyss-scanner is a fork of [hyprwayland-scanner](https://github.com/hyprwm/hyprwayland-scanner). Every Abyss library and tool is forked and renamed, so the whole ecosystem builds and updates as one – independent of system packages.
 
-### Installation
+## The Abyss ecosystem
 
-```sh
-sudo cmake --install build
-```
+| Repository | Based on |
+|---|---|
+| [Abyssland](https://github.com/AbyssWM/Abyssland) | [Hyprland](https://github.com/hyprwm/Hyprland) |
+| [Abyssal](https://github.com/AbyssWM/Abyssal) | [aquamarine](https://github.com/hyprwm/aquamarine) |
+| [Abyssutils](https://github.com/AbyssWM/Abyssutils) | [hyprutils](https://github.com/hyprwm/hyprutils) |
+| [Abyssparse](https://github.com/AbyssWM/Abyssparse) | [hyprlang](https://github.com/hyprwm/hyprlang) |
+| [Abysscursor](https://github.com/AbyssWM/Abysscursor) | [hyprcursor](https://github.com/hyprwm/hyprcursor) |
+| [Abyssgraphics](https://github.com/AbyssWM/Abyssgraphics) | [hyprgraphics](https://github.com/hyprwm/hyprgraphics) |
+| [Abysswire](https://github.com/AbyssWM/Abysswire) | [hyprwire](https://github.com/hyprwm/hyprwire) |
+| **Abyss-scanner** | [hyprwayland-scanner](https://github.com/hyprwm/hyprwayland-scanner) |
+| [Abyssland-protocols](https://github.com/AbyssWM/Abyssland-protocols) | [hyprland-protocols](https://github.com/hyprwm/hyprland-protocols) |
+| [Xdg-desktop-portal-abyss](https://github.com/AbyssWM/Xdg-desktop-portal-abyss) | [xdg-desktop-portal-hyprland](https://github.com/hyprwm/xdg-desktop-portal-hyprland) |
+
+## Credits
+
+Abyss-scanner exists thanks to **[hyprwayland-scanner](https://github.com/hyprwm/hyprwayland-scanner)**, created by **Hypr Development** at **[hyprwm](https://github.com/hyprwm)**. All credit for the original work goes to them – please support the original project.
+
+Abyss is an independent project and is **not affiliated with or endorsed by hyprwm**.
+
+## License
+
+This project is licensed under the **BSD 3-Clause License**. The original copyright notice is kept in [`LICENSE`](LICENSE) as required.
+
+## Contributors
+
+- [bb8TheRobot](https://github.com/bb8TheRobot)
+- Claude (Anthropic) – AI pair programmer
