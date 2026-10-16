@@ -1,0 +1,47 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    name: Build Abyss-scanner (Arch)
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux
+    steps:
+      - name: Install packages
+        run: |
+          sed -i 's/SigLevel    = Required DatabaseOptional/SigLevel    = Optional TrustAll/' /etc/pacman.conf
+          pacman --noconfirm --noprogressbar -Syyu
+          pacman --noconfirm --noprogressbar -S \
+            base-devel cmake git ninja pkgconf clang lld libc++ pugixml
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Mark directory as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Build Abyss-scanner
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DCMAKE_INSTALL_LIBDIR=lib
+          cmake --build build -j "$(nproc)"
+
+      - name: Install
+        run: cmake --install build --prefix install-root
+
+      - name: Package artifacts
+        run: |
+          mkdir abyss-scanner
+          cp LICENSE abyss-scanner/ || true
+          cp -r install-root/* abyss-scanner/
+          tar -cvJf Abyss-scanner.tar.xz abyss-scanner
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: Build archive
+          path: Abyss-scanner.tar.xz
