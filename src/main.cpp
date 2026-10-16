@@ -1016,7 +1016,7 @@ int main(int argc, char** argv, char** envp) {
     PROTO_DATA.fileName     = protopath.substr(protopath.find_last_of('/') + 1, protopath.length() - (protopath.find_last_of('/') + 1) - 4);
 
     const auto COPYRIGHT =
-        std::format("// Generated with abyss-scanner {}. Made with vaxry's keyboard and ❤️.\n// {}\n\n/*\n This protocol's authors' copyright notice is:\n\n{}\n*/\n\n",
+        std::format("// Generated with abyss-scanner {}. Part of the Abyss ecosystem.\n// {}\n\n/*\n This protocol's authors' copyright notice is:\n\n{}\n*/\n\n",
                     SCANNER_VERSION, PROTO_DATA.nameOriginal, std::string{doc.child("protocol").child("copyright").child_value()});
 
     parseXML(doc);

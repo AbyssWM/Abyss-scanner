@@ -5,7 +5,7 @@ string(STRIP ${VER_RAW} VERSION)
 
 project(
   abyss-scanner
-  DESCRIPTION "A abyssland version of wayland-scanner in and for C++"
+  DESCRIPTION "An Abyss version of wayland-scanner in and for C++"
   VERSION ${VERSION})
 
 include(GNUInstallDirs)

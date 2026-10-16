@@ -2,7 +2,7 @@
 
 set_and_check(BINDIR "@PACKAGE_CMAKE_INSTALL_BINDIR@")
 
-function(abysswayland_protocol targets protoName protoPath outputPath)
+function(abyss_protocol targets protoName protoPath outputPath)
     add_custom_command(
         OUTPUT "${outputPath}/${protoName}.cpp"
         COMMAND "${BINDIR}/abyss-scanner" "${protoPath}/${protoName}.xml" "${outputPath}"
